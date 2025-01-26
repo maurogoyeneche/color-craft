@@ -34,7 +34,7 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
   console.log(state.defaultValues.color);
 
   return (
-    <Card className={cn("w-full max-w-md", className)}>
+    <Card className={cn("w-full", className)}>
       <CardHeader>
         <CardTitle>Color Crafter</CardTitle>
         <CardDescription>
