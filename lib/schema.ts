@@ -1,13 +1,14 @@
 import { z } from "zod";
 
 export const contactFormSchema = z.object({
-  name: z
+  color: z
     .string()
-    .min(2, { message: "Name must be at least 2 characters" })
-    .max(32, { message: "Name must be at most 32 characters" }),
-  email: z.string().email({ message: "Invalid email address" }),
+    .min(2, { message: "Debes agregar al menos un color" })
+    .max(32, { message: "Tu fórmnula de color es muy commpleja" }),
   message: z
     .string()
-    .min(2, { message: "Message must be at least 2 characters" })
-    .max(1000, { message: "Message must be at most 1000 characters" }),
+    .min(2, { message: "El comentario debe tener al menos 2 caracteres" })
+    .max(1000, {
+      message: "El comentario debe tener menos de 1000 caracteres",
+    }),
 });

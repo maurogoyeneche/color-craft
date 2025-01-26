@@ -16,14 +16,13 @@ export async function contactFormAction(
 
     // This simulates a slow response like a form submission.
     // Replace this with your actual form submission logic.
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     console.log(data);
 
     return {
       defaultValues: {
-        name: "",
-        email: "",
+        color: formData.get("color") as string,
         message: "",
       },
       success: true,
