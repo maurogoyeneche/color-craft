@@ -19,10 +19,6 @@ import { contactFormAction } from "@/lib/actions";
 import { Check } from "lucide-react";
 
 export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
-    const [formValues, setFormValues] = React.useState({
-        color: "",
-        message: "",
-      });
   const [state, formAction, pending] = React.useActionState(contactFormAction, {
     defaultValues: {
       color: "",
@@ -51,7 +47,7 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
             </p>
           ) : null}
           <div
-            className="group/field grid gap-2"
+            className="group/field grid gap-2 text-red"
             data-invalid={!!state.errors?.color}
           >
             <Label
@@ -71,7 +67,7 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
               defaultValue={state.defaultValues.color}
             />
             {state.errors?.color && (
-              <p id="error-color" className="text-destructive text-sm">
+              <p id="error-color" className="text-destructive text-xs text-red-500">
                 {state.errors.color}
               </p>
             )}
@@ -98,7 +94,7 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
               defaultValue={state.defaultValues.message}
             />
             {state.errors?.message && (
-              <p id="error-message" className="text-destructive text-sm">
+              <p id="error-message" className="text-destructive text-xs text-red-500">
                 {state.errors.message}
               </p>
             )}

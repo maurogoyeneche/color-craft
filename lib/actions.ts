@@ -23,7 +23,7 @@ export async function contactFormAction(
     return {
       defaultValues: {
         color: formData.get("color") as string,
-        message: "",
+        message: formData.get("message") as string,
       },
       success: true,
       errors: null,

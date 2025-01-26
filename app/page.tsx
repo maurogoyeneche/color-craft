@@ -1,7 +1,6 @@
 import { Metadata } from "next"
 import Image from "next/image"
-import { Input } from "@/components/ui/input" // Update import path
-import { ContactForm } from "@/components/ui/contact-form"
+import { ContactForm } from "@/components/ui/color-form"
 
 export const metadata: Metadata = {
   title: "Color Craft",
