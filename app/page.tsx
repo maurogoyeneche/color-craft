@@ -17,7 +17,7 @@ export default function Home() {
     <div className="flex items-center justify-center min-h-screen font-[family-name:var(--font-geist-sans)]">
       <main className="main flex justify-center items-center w-full">
         <motion.div
-          className="mask"
+          className="mask flex justify-center items-center" 
           animate={{
             WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
             WebkitMaskSize: `${size}px`,
@@ -32,7 +32,7 @@ export default function Home() {
               setIsHovered(false);
             }}
           >
-            &ldquo;La peluquería <strong>es un arte</strong>. Un saber hacer que
+            &ldquo;La peluquería <strong>es un arte</strong>.<br/> Un saber hacer que
             nunca podrá ser reemplazado por máquinas. <br />
             Para realizar este arte, siempre necesitaremos las manos y los
             gestos del artista: El peluquero.&rdquo;
@@ -41,7 +41,7 @@ export default function Home() {
             Eugène Schueller
           </p>
         </motion.div>
-        <ContactForm className="" />
+        <ContactForm />
       </main>
 
       <footer className="row-start-3 flex flex-wrap items-center justify-center"></footer>
