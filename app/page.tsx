@@ -24,7 +24,7 @@ export default function Home() {
           }}
           transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
         >
-          <p className="mx-auto select-none"
+          <p className="mx-auto select-none h-full"
             onMouseEnter={() => {
               setIsHovered(true);
             }}
