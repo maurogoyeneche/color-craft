@@ -2,20 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.main{
+  height: 100vh;
+
+  .mask, .body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #afa18f;
+    font-size: 36px;
+    line-height: 30px;
+    cursor: default;
+    
+    p{
+      text-wrap: balance;
+    }
+    span{
+      color: #ec4e39;
+    }
+  }
+
+  .mask{
+    mask-image: url('../public/mask.svg');
+    mask-repeat: no-repeat;
+    mask-size: 36px;
+    background: rgb(255, 215, 85);
+    position: absolute;
+    color: black;
+  }
 }
