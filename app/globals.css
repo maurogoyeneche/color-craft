@@ -11,3 +11,35 @@ body {
     --radius: 0.5rem;
   }
 }
+
+.main{
+  height: 100vh;
+
+  .mask, .body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #afa18f;
+    font-size: 36px;
+    line-height: 30px;
+    cursor: default;
+    
+    p{
+      text-wrap: balance;
+    }
+    span{
+      color: #ec4e39;
+    }
+  }
+
+  .mask{
+    mask-image: url('../public/mask.svg');
+    mask-repeat: no-repeat;
+    mask-size: 36px;
+    background: rgb(255, 215, 85);
+    position: absolute;
+    color: black;
+  }
+}
