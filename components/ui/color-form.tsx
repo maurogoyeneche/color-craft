@@ -12,11 +12,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+
 import { cn } from "@/lib/utils";
 
 import { contactFormAction } from "@/lib/actions";
 import { Check } from "lucide-react";
-import { Vortex } from "react-loader-spinner";
+// import { Vortex } from "react-loader-spinner";
 
 export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
   const [state, formAction, isPending] = React.useActionState(
@@ -29,10 +31,14 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
       errors: null,
     }
   );
+  const [formValues, setFormValues] = React.useState({
+    color: "",
+  });
+  const isColorValue = formValues.color ?? true;
 
   return (
     <>
-      <Card className={cn("w-[95%] max-w-md", className)}>
+      <Card className={cn("w-[95%] max-w-md h-[440px]", className)}>
         <CardHeader>
           <CardTitle>Color Crafter</CardTitle>
           <CardDescription>
@@ -42,12 +48,6 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
         </CardHeader>
         <form action={formAction}>
           <CardContent className="flex flex-col gap-6">
-            {state.success ? (
-              <p className="text-muted-foreground flex items-center gap-2 text-sm">
-                <Check className="size-4" />
-                Hemos mejorado tu formula de color. Espero te agrade.
-              </p>
-            ) : null}
             <div
               className="group/field grid gap-2 text-red"
               data-invalid={!!state.errors?.color}
@@ -67,6 +67,9 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
                 aria-invalid={!!state.errors?.color}
                 aria-errormessage="error-color"
                 defaultValue={state.defaultValues.color}
+                onChange={(e) =>
+                  setFormValues((prev) => ({ ...prev, color: e.target.value }))
+                }
               />
               {state.errors?.color && (
                 <p
@@ -78,40 +81,45 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
               )}
             </div>
           </CardContent>
-          <CardFooter>
-            <Button type="submit" size="sm" disabled={isPending}>
+          <CardFooter className="flex flex-col gap-6 items-start">
+            <Button
+              type="submit"
+              size="sm"
+              disabled={isPending || !isColorValue}
+            >
               {isPending ? "Mejorando..." : "Mejorar fórmula"}
             </Button>
+            <p
+              className={`text-muted-foreground flex items-center gap-2 text-sm ${
+                !state.success && "hidden"
+              }`}
+            >
+              <Check className="size-4" />
+              Hemos mejorado tu formula de color. Espero te agrade.
+            </p>
           </CardFooter>
         </form>
-
-        {state.success && (
+        {state.success ? (
           <Card
-            className={cn(
-              "mx-6 mt-2 mb-6 p-6 max-w-md bg-violet-500 shadow-lg"
-            )}
+            className={cn("mx-6 mb-6 p-6 max-w-md bg-violet-500 shadow-lg")}
           >
-            <p className="px-6 text-white">
-              La formula mejorada es:{" "}
+            <p className="px-6 text-white text-center">
+              <span className="mr-2">🧙🏻🪄✨</span>
               <span className="text-xl font-semibold">
-                🧙🏻🪄✨ {state.defaultValues.color}
+                {state.defaultValues.color}
               </span>
             </p>
           </Card>
+        ) : (
+          <Skeleton
+            className={cn(
+              `w-[90%] mx-auto h-[120px] mt-2 mb-6 ${!isPending && "hidden"}`
+            )}
+          />
         )}
       </Card>
       {isPending && (
-        <div className="absolute flex justify-center items-center h-dvh w-full bg-white/50 backdrop-blur-sm">
-          <Vortex
-            visible={true}
-            height="120"
-            width="120"
-            ariaLabel="vortex-loading"
-            wrapperStyle={{}}
-            wrapperClass="vortex-wrapper"
-            colors={["red", "green", "blue", "yellow", "orange", "purple"]}
-          />
-        </div>
+        <div className="absolute flex justify-center items-center h-dvh w-full bg-white/50 backdrop-blur-sm animate-pulse" />
       )}
     </>
   );
