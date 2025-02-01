@@ -10,25 +10,24 @@ export async function contactFormAction(
   const defaultValues = z
     .record(z.string(), z.string())
     .parse(Object.fromEntries(formData.entries()));
-
+  console.log(formData.get("color"));
   try {
     const data = contactFormSchema.parse(Object.fromEntries(formData));
+    console.log(data);
 
     // This simulates a slow response like a form submission.
     // Replace this with your actual form submission logic.
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    console.log(data);
-
     return {
       defaultValues: {
         color: formData.get("color") as string,
-        message: formData.get("message") as string,
       },
       success: true,
       errors: null,
     };
   } catch (error) {
+    console.log(error);
     if (error instanceof z.ZodError) {
       return {
         defaultValues,
