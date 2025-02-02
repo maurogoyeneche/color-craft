@@ -83,6 +83,7 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
           </CardContent>
           <CardFooter className="flex flex-col gap-6 items-start">
             <Button
+              className="z-0"
               type="submit"
               size="sm"
               disabled={isPending || !isColorValue}
