@@ -5,7 +5,7 @@ import LoginGoogleButton from "./login-google-button";
 export default function Login() {
   const { data: session } = useSession();
   return !session ? (
-    <div className="flex flex-col items-center justify-center gap-4 py-12 px-6 sm:px-20 font-[family-name:var(--font-geist-sans)] z-20">
+    <div className="flex flex-col items-center justify-center gap-4 py-12 px-6 sm:px-20 font-[family-name:var(--font-geist-sans)] z-50">
       <p className="text-center text-neutral-500 text-sm">
         Para utilizar Color Crafter inicia sesión con Google
       </p>
