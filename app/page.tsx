@@ -9,8 +9,8 @@ export default function Home() {
     <div className="flex items-center justify-center min-h-screen font-[family-name:var(--font-geist-sans)]">
       <main className="main flex  flex-col justify-center items-center w-full">
         {/* <FramerMask /> */}
-        <ContactForm />
         <Login />
+        <ContactForm />
       </main>
 
       <footer className="row-start-3 flex flex-wrap items-center justify-center"></footer>

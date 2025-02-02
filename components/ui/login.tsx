@@ -7,14 +7,14 @@ export default function Login() {
   const user = session?.user ? session.user.name : null;
   return (
     session && (
-      <div className="flex items-center w-full max-w-md gap-4 my-2 font-[family-name:var(--font-geist-sans)]">
+      <div className="flex items-center w-full max-w-md gap-4 my-3 font-[family-name:var(--font-geist-sans)]">
         <span className="text-start text-neutral-500 w-full text-sm">
           Hola <strong>{user}</strong>.
         </span>
 
         <button
           onClick={() => signOut()}
-          className="flex items-center text-xs px-2 py-1 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors"
+          className="flex items-center text-xs px-2 py-1 border rounded-md hover:bg-gray-200 transition-colors"
         >
           Salir
           <svg
