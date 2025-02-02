@@ -29,7 +29,9 @@ export default function LoginGoogleButton() {
           d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
         />
       </svg>
-      <span className="font-medium text-gray-700">Sign in with Google</span>
+      <span className="font-medium text-gray-700">
+        Inicia sesión con Google
+      </span>
     </button>
   );
 }
