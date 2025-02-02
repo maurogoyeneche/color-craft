@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 import {
   Card,
@@ -20,7 +20,6 @@ import { cn } from "@/lib/utils";
 
 import { contactFormAction } from "@/lib/actions";
 import { Check } from "lucide-react";
-// import { Vortex } from "react-loader-spinner";
 
 export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
   const { data: session } = useSession();
@@ -42,12 +41,7 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
 
   return (
     <>
-      <Card
-        className={cn(
-          `w-[95%] max-w-md h-[440px] ${!session && "color-form-blur"}`,
-          className
-        )}
-      >
+      <Card className={cn(`w-[95%] max-w-md h-[440px]`, className)}>
         <CardHeader>
           <CardTitle>Color Crafter</CardTitle>
           <CardDescription>
@@ -55,7 +49,7 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
             ayudaremos.
           </CardDescription>
         </CardHeader>
-        <form action={formAction}>
+        <form action={!session ? "/api/auth/signin" : formAction}>
           <CardContent className="flex flex-col gap-6">
             <div
               className="group/field grid gap-2 text-red"
