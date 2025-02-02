@@ -12,10 +12,11 @@ body {
   }
 }
 
-.main{
+.main {
   height: 100vh;
 
-  .mask, .body{
+  .mask,
+  .body {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -25,21 +26,25 @@ body {
     font-size: 36px;
     line-height: 30px;
     cursor: default;
-    
-    p{
+
+    p {
       text-wrap: balance;
     }
-    span{
+    span {
       color: #ec4e39;
     }
   }
 
-  .mask{
-    mask-image: url('../public/mask.svg');
+  .mask {
+    mask-image: url("../public/mask.svg");
     mask-repeat: no-repeat;
     mask-size: 36px;
     background: rgb(255, 215, 85);
     position: absolute;
     color: black;
+  }
+
+  .color-form-blur {
+    filter: blur(2px);
   }
 }
