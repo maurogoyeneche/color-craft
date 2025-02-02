@@ -4,11 +4,10 @@ import { useSession, signOut } from "next-auth/react";
 import LoginGoogleButton from "./login-google-button";
 export default function Login() {
   const { data: session } = useSession();
-  console.log(session);
   return !session ? (
     <div className="flex flex-col items-center justify-center gap-4 py-12 px-6 sm:px-20 font-[family-name:var(--font-geist-sans)] z-20">
       <p className="text-center text-neutral-500 text-sm">
-        Please sign in with your Google account
+        Para utilizar Color Crafter inicia sesión con Google
       </p>
 
       <div className="flex items-center justify-center gap-4">
