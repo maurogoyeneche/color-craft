@@ -7,7 +7,7 @@ export default function Login() {
   const user = session?.user ? session.user.name : null;
   return (
     session && (
-      <div className="flex items-center w-full max-w-md gap-4 my-3 font-[family-name:var(--font-geist-sans)]">
+      <div className="flex items-baseline w-[95%] max-w-md px-[1px] gap-4 my-3 font-[family-name:var(--font-geist-sans)]">
         <span className="text-start text-neutral-500 w-full text-sm">
           Hola <strong>{user}</strong>.
         </span>
