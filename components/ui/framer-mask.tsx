@@ -8,7 +8,6 @@ import useMousePosition from "@/app/hooks/useMousePosition";
 
 export default function FramerMask({ active = false }) {
   const { data: session } = useSession();
-
   const [isHovered, setIsHovered] = useState(false);
   const mousePosition = useMousePosition();
   const x = mousePosition.x ?? 0;

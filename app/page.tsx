@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="flex items-center justify-center min-h-screen font-[family-name:var(--font-geist-sans)]">
       <main className="main flex  flex-col justify-center items-center w-full">
-        <FramerMask />
+        {/* <FramerMask /> */}
         <Login />
         <ContactForm />
       </main>
