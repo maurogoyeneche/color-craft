@@ -2,6 +2,7 @@
 
 import { contactFormSchema } from "@/lib/schema";
 import { z } from "zod";
+import { useSession, signIn } from "next-auth/react";
 
 export async function contactFormAction(
   _prevState: unknown,
@@ -18,7 +19,7 @@ export async function contactFormAction(
     // This simulates a slow response like a form submission.
     // Replace this with your actual form submission logic.
     await new Promise((resolve) => setTimeout(resolve, 2000));
-
+    signIn("google", { callbackUrl: "/" });
     return {
       defaultValues: {
         color: formData.get("color") as string,
